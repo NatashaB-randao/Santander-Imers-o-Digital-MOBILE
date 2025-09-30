@@ -8,7 +8,7 @@ let chute = prompt('Escolha um número entre 0 e 30:');
 
 // Se o chute for igual ao número secreto, exiba uma mensagem de parabéns
 if (chute == numeroSecreto) {
-    alert('Parabéns! Você acertou o número secreto!');
+    alert(`Parabéns! Você acertou o número secreto! O número era ${numeroSecreto}.`);
 } else {
     alert('Que pena! Você errou.');
 }
