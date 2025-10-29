@@ -1,7 +1,13 @@
 function sortear(){
     let quantidade = document.getElementById("quantidade").value;
     let de = parseInt(document.getElementById("de").value);
-    let ate = document.getElementById("ate").value;
+    let ate = parseInt(document.getElementById("ate").value);
+
+    // Verificação adicionada no lugar certo
+    if (de >= ate) {
+        alert('Campo "Do número" deve ser inferior ao campo "Até o número". Verifique!');
+        return; // interrompe a execução da função
+    }
 
     let sorteados = [];
     let numero;
@@ -41,6 +47,8 @@ function reiniciar() {
     document.getElementById("quantidade").value = '';
     document.getElementById("de").value = '';
     document.getElementById("ate").value = '';
-    document.getElementById("resultado").innerHTML = '<label class="texto__paragrafo">Números sorteados:  nenhum até agora</label>';
+    
+    document.getElementById("resultado").innerHTML = 
+        '<label class="texto__paragrafo">Números sorteados: nenhum até agora</label>';
     alterarStatusBotao();
 }
