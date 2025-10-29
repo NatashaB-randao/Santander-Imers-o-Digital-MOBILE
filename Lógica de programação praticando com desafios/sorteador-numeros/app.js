@@ -1,32 +1,41 @@
-function sortear(){
-    let quantidade = document.getElementById("quantidade").value;
+function sortear() {
+    let quantidade = parseInt(document.getElementById("quantidade").value);
     let de = parseInt(document.getElementById("de").value);
     let ate = parseInt(document.getElementById("ate").value);
 
-    // Verificação adicionada no lugar certo
+    // 1️⃣ Proteção: "de" não pode ser maior ou igual a "até"
     if (de >= ate) {
         alert('Campo "Do número" deve ser inferior ao campo "Até o número". Verifique!');
-        return; // interrompe a execução da função
+        return; // Interrompe a função
+    }
+
+    // 2️⃣ Nova proteção: evitar loop infinito
+    if (quantidade > (ate - de + 1)) {
+        alert('Campo "Quantidade" deve ser menor ou igual ao intervalo informado no campo "Do número" até o campo "Até o número". Verifique!');
+        return; // Interrompe a função
     }
 
     let sorteados = [];
     let numero;
 
-    for(let i = 0; i < quantidade; i++) {
+    // 3️⃣ Sorteio sem repetição
+    for (let i = 0; i < quantidade; i++) {
         numero = obterNumeroAleatorio(de, ate);
         
-        while(sorteados.includes(numero)) {
+        while (sorteados.includes(numero)) {
             numero = obterNumeroAleatorio(de, ate);
         }
 
         sorteados.push(numero);
     }
 
+    // 4️⃣ Exibe o resultado na tela
     let resultado = document.getElementById("resultado");
-    resultado.innerHTML = `<label class="texto__paragrafo">Números sorteados:  ${sorteados}</label>`;
+    resultado.innerHTML = `<label class="texto__paragrafo">Números sorteados: ${sorteados}</label>`;
 
     alterarStatusBotao();
 }
+
 
 function obterNumeroAleatorio(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
