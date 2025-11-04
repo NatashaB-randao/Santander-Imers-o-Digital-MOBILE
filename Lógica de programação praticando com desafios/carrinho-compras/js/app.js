@@ -1,3 +1,6 @@
+let totalGeral;
+limpar();
+
 function adicionar() {
   // Recupera os valores
     let produto = document.getElementById("produto").value;
@@ -18,13 +21,14 @@ function adicionar() {
     `;
 
   // Atualiza o total
+    totalGeral += preco;
     let valorTotal = document.getElementById('valor-total');
-    let totalAtual = parseFloat(valorTotal.innerText.replace('R$', '')) || 0;
-    let novoTotal = totalAtual + preco;
-    valorTotal.innerText = `R$${novoTotal}`;
+    valorTotal.textContent = `R$${totalGeral}`;
+    document.getElementById("quantidade").value = 0;
 }
 
 function limpar() {
+    totalGeral = 0;
     document.getElementById('lista-produtos').innerHTML = '';
-    document.getElementById('valor-total').innerText = 'R$0';
+    document.getElementById('valor-total').innerHTML = 'R$ 0';
 }
