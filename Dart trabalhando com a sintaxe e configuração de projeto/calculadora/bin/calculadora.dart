@@ -23,13 +23,19 @@ void main() {
 
   if (operacao == '+') {
     soma();
-  } else if (operacao == '-') {
-    subtracao();
-  } else if (operacao == '*') {
-    multiplicacao();
-  } else if (operacao == '/') {
-    divisao();
   } else {
-    print('Operação inválida');
+    if (operacao == '-') {
+      subtracao();
+    } else {
+      if (operacao == '*') {
+        multiplicacao();
+      } else {
+        if (operacao == '/') {
+          divisao();
+        } else {
+          print('Operação inválida');
+        }
+      }
+    }
   }
 }
