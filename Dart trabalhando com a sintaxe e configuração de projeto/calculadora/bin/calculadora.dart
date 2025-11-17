@@ -37,17 +37,18 @@ void main() {
     case '/':
       divisao();
       break;
-    default:
-      print('Operação inválida');
     }
   }
 
   void getOperacao() {
-    print("Digite uma operação válida:");
+    print("Digite uma operação válida ${operacoes.toString()}:");
     entrada = stdin.readLineSync();
     if (entrada != null) {
       if (operacoes.contains(entrada)) {
         operacao = entrada!;
+      } else {
+        print("Operação inválida, tente novamente.");
+        getOperacao();
       }
     }
   }
