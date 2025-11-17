@@ -21,27 +21,8 @@ void main() {
     print(numeroUm / numeroDois);
   }
 
-  String? entrada = stdin.readLineSync();
-
-  if (entrada != null) {
-    if (entrada != "") {
-      numeroUm = double.parse(entrada);
-    }
-  }
-
-  entrada = stdin.readLineSync();
-  if (entrada != null) {
-    if (entrada != "") {
-      numeroDois = double.parse(entrada);
-    }
-  }
-
-  entrada = stdin.readLineSync();
-  if (entrada != null) {
-    operacao = entrada;
-  }
-
-  switch (operacao) {
+  void calcular() {
+    switch (operacao) {
     case '+':
       soma();
       break;
@@ -56,5 +37,37 @@ void main() {
       break;
     default:
       print('Operação inválida');
+    }
   }
+
+  print("Digite o primeiro número:");
+
+  String? entrada = stdin.readLineSync();
+
+  if (entrada != null) {
+    if (entrada != "") {
+      numeroUm = double.parse(entrada);
+    }
+  }
+
+  print("Digite a operação (+, -, *, /):");
+
+  entrada = stdin.readLineSync();
+  if (entrada != null) {
+    operacao = entrada;
+  }
+
+  print("Digite o segundo número:");
+
+  entrada = stdin.readLineSync();
+  if (entrada != null) {
+    if (entrada != "") {
+      numeroDois = double.parse(entrada);
+    }
+  }
+
+  print("O resultado da operação é:");
+
+  calcular();
+
 }
