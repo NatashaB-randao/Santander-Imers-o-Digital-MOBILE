@@ -4,6 +4,7 @@ void main() {
   double numeroUm = 0;
   double numeroDois = 0;
   String operacao = "";
+  String? entrada = "";
   List<String> operacoes = <String>["+", "-", "*", "/"];
 
   void soma() {
@@ -41,37 +42,34 @@ void main() {
     }
   }
 
-  print("Digite o primeiro número:");
-
-  String? entrada = stdin.readLineSync();
-
-  if (entrada != null) {
-    if (entrada != "") {
-      numeroUm = double.parse(entrada);
-    }
-  }
-
   void getOperacao() {
     print("Digite uma operação válida:");
     entrada = stdin.readLineSync();
     if (entrada != null) {
-      
+      if (operacoes.contains(entrada)) {
+        operacao = entrada!;
+      }
     }
   }
 
-  print("Digite a operação:");
+  print("Digite o primeiro número:");
 
   entrada = stdin.readLineSync();
+
   if (entrada != null) {
-    operacao = entrada;
+    if (entrada != "") {
+      numeroUm = double.parse(entrada!);
+    }
   }
+
+  getOperacao();
 
   print("Digite o segundo número:");
 
   entrada = stdin.readLineSync();
   if (entrada != null) {
     if (entrada != "") {
-      numeroDois = double.parse(entrada);
+      numeroDois = double.parse(entrada!);
     }
   }
 
