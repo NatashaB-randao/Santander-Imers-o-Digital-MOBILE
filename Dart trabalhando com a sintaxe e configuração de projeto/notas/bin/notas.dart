@@ -44,7 +44,11 @@ void listarNotas(List<String> notas) {
 }
 
 void menu(List<String> notas) {
+  print("");
+  cabecalho();
+  print("");
   String comando = getComando();
+  print("");
 
   switch (comando) {
     case "1":
@@ -63,4 +67,12 @@ void menu(List<String> notas) {
       menu(notas);
   }
 
+}
+
+void cabecalho() {
+  print(r'''  _  _     _           
+  | \| |___| |_ __ _ ___
+  | .` / _ \  _/ _` (_-<
+  |_|\_\___/\__\__,_/__/
+                        ''');
 }
