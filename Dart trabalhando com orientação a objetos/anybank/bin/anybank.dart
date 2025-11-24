@@ -11,27 +11,28 @@ void main() {
   contaJoao.saldo = 5000.0;
   print(contaJoao.saldo);
 
-  receber(contaSergio, 1000.0);
+  contaSergio.receber(1000);
   print(contaSergio.titular);
   print(contaSergio.saldo);
 
-  pagar(contaSergio, 200.0);
+  contaSergio.pagar(200);
   print(contaSergio.titular);
   print(contaSergio.saldo);
 }
 
-void receber(Conta conta, double valor) {
-  conta.saldo += valor;
-}
-
-void pagar(Conta conta, double valor) {
-  conta.saldo -= valor;
-}
 
 class Conta {
   String titular;
   double saldo;
 
   Conta(this.titular, this.saldo);
+
+  void receber(double valor) {
+    saldo += valor;
+  }
+
+  void pagar(double valor) {
+    saldo -= valor;
+  }
 }
 
