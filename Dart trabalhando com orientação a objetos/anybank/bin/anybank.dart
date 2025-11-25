@@ -1,4 +1,4 @@
-import '../lib/conta.dart';
+import 'package:anybank/conta.dart';
 
 void main() {
   Conta contaSergio = Conta("Sergio", 1000.0);
