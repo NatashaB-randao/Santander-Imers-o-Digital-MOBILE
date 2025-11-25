@@ -1,3 +1,5 @@
+import '../lib/conta.dart';
+
 void main() {
   Conta contaSergio = Conta("Sergio", 1000.0);
   Conta contaJoao = Conta("João", 2000.0);
@@ -5,34 +7,20 @@ void main() {
   List<Conta> contas = [contaSergio, contaJoao];
 
   for (var conta in contas) {
-    print("Titular: ${conta.titular}, Saldo: ${conta.saldo}");
+    print("Titular: ${conta.titular}, Saldo: ${conta._saldo}");
   }
 
-  contaJoao.saldo = 5000.0;
-  print(contaJoao.saldo);
+  contaJoao._saldo = 5000.0;
+  print(contaJoao._saldo);
 
   contaSergio.receber(1000);
   print(contaSergio.titular);
-  print(contaSergio.saldo);
+  print(contaSergio._saldo);
 
-  contaSergio.pagar(200);
+  contaSergio.enviar(200);
   print(contaSergio.titular);
-  print(contaSergio.saldo);
+  print(contaSergio._saldo);
 }
 
 
-class Conta {
-  String titular;
-  double saldo;
-
-  Conta(this.titular, this.saldo);
-
-  void receber(double valor) {
-    saldo += valor;
-  }
-
-  void pagar(double valor) {
-    saldo -= valor;
-  }
-}
 
