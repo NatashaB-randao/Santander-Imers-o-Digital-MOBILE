@@ -7,19 +7,12 @@ void main() {
   List<Conta> contas = [contaSergio, contaJoao];
 
   for (var conta in contas) {
-    print("Titular: ${conta.titular}, Saldo: ${conta._saldo}");
+    conta.imprimeSaldo();
   }
 
-  contaJoao._saldo = 5000.0;
-  print(contaJoao._saldo);
-
+  contaJoao.receber(3000);
   contaSergio.receber(1000);
-  print(contaSergio.titular);
-  print(contaSergio._saldo);
-
   contaSergio.enviar(200);
-  print(contaSergio.titular);
-  print(contaSergio._saldo);
 }
 
 
