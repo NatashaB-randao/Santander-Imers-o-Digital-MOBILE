@@ -4,7 +4,7 @@ void main() {
   Conta contaSergio = Conta("Sergio", 1000.0);
   Conta contaJoao = Conta("João", 2000.0);
   ContaCorrente contaChris = ContaCorrente("Chris", 4000.0);
-  ContaPoupanca contaAna = ContaPoupanca("Ana", 5000.0);
+  ContaPoupanca contaAna = ContaPoupanca("Ana", 4000.0);
 
   List<Conta> contas = [contaSergio, contaJoao, contaChris, contaAna];
 
@@ -17,9 +17,11 @@ void main() {
   contaSergio.enviar(200);
 
   contaChris.imprimeSaldo();
-  contaChris.receber(1000);
+  contaChris.enviar(4300);
 
   contaAna.imprimeSaldo();  
-  contaAna.enviar(300);
+  contaAna.enviar(4300);
+  contaAna.aplicarRendimento();
+  contaAna.imprimeSaldo();
 }
 
