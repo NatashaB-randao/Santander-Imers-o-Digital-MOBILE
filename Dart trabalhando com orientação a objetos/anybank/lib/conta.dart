@@ -45,3 +45,29 @@ class ContaPoupanca extends Conta {
      _saldo += _saldo * taxaRendimento;
     }
 }
+
+mixin Imposto {
+  double taxa = 0.03;
+
+  double valorTaxado(double valor) {
+    return valor * taxa;
+  }
+}
+
+class ContaEmpresa extends Conta with Imposto {
+  ContaEmpresa(super.titular, super._saldo);
+
+  @override
+  void enviar(double valor) {
+    if (_saldo >= valor + valorTaxado(valor)) {
+      _saldo -= valor + valorTaxado(valor);
+      imprimeSaldo();
+    }
+  }
+
+  @override
+  void receber(double valor) {
+    _saldo += valor - valorTaxado(valor);
+    imprimeSaldo();
+  }
+}
