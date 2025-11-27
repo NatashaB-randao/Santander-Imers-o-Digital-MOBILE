@@ -71,3 +71,21 @@ class ContaEmpresa extends Conta with Imposto {
     imprimeSaldo();
   }
 }
+
+class ContaInvestimento extends Conta with Imposto {
+  ContaInvestimento(super.titular, super._saldo);
+
+  @override
+  void enviar(double valor) {
+    if (_saldo >= valor + valorTaxado(valor)) {
+      _saldo -= valor + valorTaxado(valor);
+      imprimeSaldo();
+    }
+  }
+
+  @override
+  void receber(double valor) {
+    _saldo += valor - valorTaxado(valor);
+    imprimeSaldo();
+  }
+}
