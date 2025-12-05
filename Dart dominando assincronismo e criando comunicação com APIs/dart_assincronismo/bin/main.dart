@@ -3,7 +3,8 @@ import 'dart:convert';
 
 void main() {
   //print('Hello, World!');
-  requestData();
+  //requestData();
+  requestDataAsync();
 }
 
 void requestData() {
@@ -20,8 +21,14 @@ void requestData() {
     
     },
   );
-
   print("Última coisa a acontecer no main");
-
 }
 
+void requestDataAsync() async {
+  String url = "https://gist.githubusercontent.com/ricarthlima/a0eb198cb7a70696c4031e7e577de0cd/raw/356ce2c39dfd58d3d2e948d1ad87ea828544f1db/accounts.json";
+  Response response = await get(Uri.parse(url));
+  print(response.statusCode);
+  print(json.decode(response.body)[0]);
+
+  print("De fato a última coisa a acontecer no main");
+}
