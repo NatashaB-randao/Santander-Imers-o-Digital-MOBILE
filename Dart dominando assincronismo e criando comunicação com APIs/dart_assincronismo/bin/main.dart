@@ -18,7 +18,10 @@ void requestData() {
     
     print(mapCarla["balance"]);
     
-  },
+    },
   );
+
+  print("Última coisa a acontecer no main");
+
 }
 
